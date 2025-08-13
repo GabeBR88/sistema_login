@@ -15,11 +15,3 @@ class Usuario:
         return hashlib.sha256(senha_texto.encode()).hexdigest() == self.senha_hash
 
 
-teste = Usuario("Gabriel", "teste@gmail.com")
-teste.set_senha("TestandoSenha*22")
-
-print(teste.verificar_senha("testando"))
-print(teste.verificar_senha("TestandoSenha*22"))
-
-print(hasattr(teste, "senha"))
-print(teste.senha_hash)
