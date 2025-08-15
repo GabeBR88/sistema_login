@@ -49,19 +49,15 @@ class SistemaUsuarios:
     def autenticar_usuario(self, email:str, senha:str):
         usuarios = carregar_json(path)
         if not usuarios:
-            print("Não há dados cadastrados!")
-            return
+            return None  # Não há usuários
+
+        senha_hash = hashlib.sha256(senha.encode()).hexdigest()
 
         for usuario in usuarios:
-            if usuario['email'] == email:
-                senha_hash = hashlib.sha256(senha.encode()).hexdigest()
-                if usuario['senha'] == senha_hash:
-                        print(f"Nome: {usuario['nome']}")
-                        break
-                else:
-                    print("Nenhum usuario localizado com a senha informada!")
-            else:
-                print("Nenhum usuario localizado com o e-mail informado!")
+            if usuario['email'] == email and usuario['senha'] == senha_hash:
+                return usuario  # Retorna o dicionário com os dados do usuário
+
+        return None  # Se não encontrar
             
 
     def listar_usuarios(self):
@@ -74,5 +70,4 @@ class SistemaUsuarios:
             print(f"Nome: {usuario['nome']}")
             print(f"E-mail: {usuario['email']}\n")
            
-
 
