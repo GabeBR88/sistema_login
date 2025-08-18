@@ -17,33 +17,28 @@ class SistemaUsuarios:
         return re.match(r"^.{6,}$", senha) is not None
     
 
-    def cadastrar_usuario(self, usuario:Usuario):
+    def cadastrar_usuario(self, usuario: Usuario, senha):
         self.lista_usuarios.extend(carregar_json(path))
 
         if not self.validar_email(usuario.email):
-            print("❌ E-mail inválido. Tente novamente!")
-            return
-            
-        senha = input("Digite a senha: ")
+            return False, "E-mail inválido. Tente novamente!"
+        
         if not self.validar_senha(senha):
-            print("❌ A senha deve ter pelo menos 6 caracteres.")
-            return
+            return False, "A senha deve ter pelo menos 6 caracteres."
             
         usuario.set_senha(senha)
 
-        if usuario.verificar_senha(senha) == True:
+        if usuario.verificar_senha(senha):
             dados = {
-                "nome" : usuario.nome,
-                "email" : usuario.email,
-                "senha" : usuario.senha_hash
+                "nome": usuario.nome,
+                "email": usuario.email,
+                "senha": usuario.senha_hash
             }
-
             self.lista_usuarios.append(dados)
             salvar_json(path, self.lista_usuarios)
-            print("Salvo com sucesso!")
-        
+            return True, "Usuário salvo com sucesso!"
         else:
-            print("Tente novamente!")
+            return False, "Erro ao verificar senha. Tente novamente!"
 
 
     def autenticar_usuario(self, email:str, senha:str):
@@ -61,13 +56,15 @@ class SistemaUsuarios:
             
 
     def listar_usuarios(self):
+        return carregar_json(path)
+    
+    
+    def excluir_usuario(self, email):
         usuarios = carregar_json(path)
-        if not usuarios:
-            print("Não há dados cadastrados!")
-            return
+        usuarios = [u for u in usuarios if u['email'] != email]  # remove o usuário
+        salvar_json(path, usuarios)
+        return True
+
         
-        for usuario in usuarios:
-            print(f"Nome: {usuario['nome']}")
-            print(f"E-mail: {usuario['email']}\n")
            
 
