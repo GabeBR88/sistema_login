@@ -1,22 +1,27 @@
 [
     {
-        "nome": "Neemias Fernandez",
-        "email": "neemias@yahoo.com.br",
-        "senha": "6a7778eb236a209c5e23707705339c1158bd30dbaa8222c38a6fb3e11ce48136"
-    },
-    {
         "nome": "Endrel Vinicius",
         "email": "vini@bol.com.br",
         "senha": "767dfa4ed5121e94f731e4c95d1edd8e0aab1812e6de0b8fa3315eb0004f1ec6"
     },
     {
-        "nome": "Douglas Dopler",
-        "email": "mertzz21@gmail.com.com.br",
-        "senha": "11dae68257218fc6cc707aa5efc2b21e7f2ab04fa297275318a7449fed514090"
-    },
-    {
         "nome": "Gabriel Brito de Oliveira",
         "email": "gabe@hotmail.com",
         "senha": "ec95ce5d75db3aecd181ed1aac0703cf887a7981f6d7e93a525c26d576d09a84"
+    },
+    {
+        "nome": "Victor Antônio Brito",
+        "email": "victorb@gmail.com",
+        "senha": "8b8a228125ea9ea59171fbfce981831645f113c27a5391a8018385c80ae32dcb"
+    },
+    {
+        "nome": "Raphael Brito",
+        "email": "rapha@gmail.com",
+        "senha": "2dd6ca31c79bc42b8ef9218659cbcb8ca93878c4dd9cd2dd3d21f400dbc558d1"
+    },
+    {
+        "nome": "Victória Brito",
+        "email": "vick@hotmail.com",
+        "senha": "e9d8f1ec4d87acdd8499262e4788401f3ad980314f1e37a2710cb1d9eba40b57"
     }
 ]
